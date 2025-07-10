@@ -1,4 +1,3 @@
-
 import { Link } from "react-router-dom";
 
 const Header = () => {
@@ -20,19 +19,11 @@ const Header = () => {
       </Link>
 
       <nav className="header-nav">
-        <a href="#home">Αρχική</a>
-        <a href="#services">Υπηρεσίες</a>
-
-        <div className="dropdown">
-          <a href="#products" className="dropbtn">Προϊόντα</a>
-          <div className="dropdown-content">
-            <a href="#accesories">Αξεσουάρ</a>
-            <a href="#parts">Ανταλλακτικά & Ελαστικά</a>
-            <a href="#moto">Κράνη</a>
-          </div>
-        </div>
-
-        <a href="#contact">Επικοινωνία</a>
+        <Link to="/">Αρχική</Link>
+        <Link to="/accesories">Αξεσουάρ</Link>
+        <Link to="/parts">Ανταλλακτικά & Ελαστικά</Link>
+        <Link to="/helmets">Κράνη</Link>
+        <a href="#contact">Επικοινωνία</a> {/* ή Link αν είναι ξεχωριστή σελίδα */}
       </nav>
     </header>
   );
