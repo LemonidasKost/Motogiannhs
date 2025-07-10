@@ -3036,3 +3036,11 @@ html, body {
   overflow-x: hidden;
 
 }
+.link-btn {
+  background: none;
+  border: none;
+  font: inherit;
+  color: inherit;
+  cursor: pointer;
+  padding: 0;
+}

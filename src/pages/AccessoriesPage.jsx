@@ -1,8 +1,13 @@
 // pages/AccessoriesPage.jsx
+import Layout from "../components/Layout";
 import ProductCard from "../components/ProductCard";
+import Header from "../components/Header";
+import Footer from "../components/Footer";
 
 function AccessoriesPage() {
   return (
+    <>
+    <Header/>
     <div style={{ padding: "2rem", minHeight: "80vh" }}>
       <h2 style={{ textAlign: "center", marginBottom: "2rem" }}>Αξεσουάρ</h2>
       <div
@@ -18,6 +23,8 @@ function AccessoriesPage() {
         <ProductCard title="Σακίδιο Πλάτης" description="Αδιάβροχο και εργονομικό" />
       </div>
     </div>
+    <Footer/>
+    </>
   );
 }
 

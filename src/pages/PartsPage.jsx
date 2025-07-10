@@ -1,7 +1,11 @@
+import Footer from "../components/Footer";
+import Header from "../components/Header";
 import ProductCard from "../components/ProductCard";
 
 function PartsPage() {
   return (
+    <>
+    <Header/>
     <div style={{ padding: "2rem", minHeight: "80vh" }}>
       <h2 style={{ textAlign: "center", marginBottom: "2rem" }}>
         Ανταλλακτικά & Ελαστικά
@@ -19,6 +23,8 @@ function PartsPage() {
         <ProductCard title="Μπουζί Iridium" description="Για καλύτερη καύση και απόδοση" />
       </div>
     </div>
+    <Footer/>
+    </>
   );
 }
 

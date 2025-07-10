@@ -1,6 +1,28 @@
-import { Link } from "react-router-dom";
+import React from "react";
+import { useNavigate, useLocation, Link } from "react-router-dom";
 
 const Header = () => {
+  const navigate = useNavigate();
+  const location = useLocation();
+
+  const scrollToSection = (sectionId) => {
+    if (location.pathname !== "/") {
+      navigate("/", { replace: false });
+      // Μικρή καθυστέρηση για να φορτώσει η αρχική πριν το scroll
+      setTimeout(() => {
+        const element = document.getElementById(sectionId);
+        if (element) {
+          element.scrollIntoView({ behavior: "smooth" });
+        }
+      }, 200);
+    } else {
+      const element = document.getElementById(sectionId);
+      if (element) {
+        element.scrollIntoView({ behavior: "smooth" });
+      }
+    }
+  };
+
   return (
     <header className="site-header">
       <Link
@@ -19,11 +41,25 @@ const Header = () => {
       </Link>
 
       <nav className="header-nav">
-        <Link to="/">Αρχική</Link>
-        <Link to="/accesories">Αξεσουάρ</Link>
-        <Link to="/parts">Ανταλλακτικά & Ελαστικά</Link>
-        <Link to="/helmets">Κράνη</Link>
-        <a href="#contact">Επικοινωνία</a> {/* ή Link αν είναι ξεχωριστή σελίδα */}
+        <button onClick={() => scrollToSection("home")} className="link-btn">
+          Αρχική
+        </button>
+        <button onClick={() => scrollToSection("services")} className="link-btn">
+          Υπηρεσίες
+        </button>
+
+        <div className="dropdown">
+          <span className="dropbtn">Προϊόντα</span>
+          <div className="dropdown-content">
+            <Link to="/accesories">Αξεσουάρ</Link>
+            <Link to="/parts">Ανταλλακτικά & Ελαστικά</Link>
+            <Link to="/helmets">Κράνη</Link>
+          </div>
+        </div>
+
+        <button onClick={() => scrollToSection("contact")} className="link-btn">
+          Επικοινωνία
+        </button>
       </nav>
     </header>
   );
