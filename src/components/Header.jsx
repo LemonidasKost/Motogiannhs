@@ -1,5 +1,6 @@
 import React from "react";
 import { useNavigate, useLocation, Link } from "react-router-dom";
+import logo from "../assets/motojohn-logo.jpg"
 
 const Header = () => {
   const navigate = useNavigate();
@@ -31,7 +32,7 @@ const Header = () => {
         style={{ display: "flex", alignItems: "center", gap: "24px" }}
       >
         <img
-          src="images/motojohn-logo.jpg"
+          src={logo}
           alt="MotoJohn Logo"
           className="logo-icon"
         />

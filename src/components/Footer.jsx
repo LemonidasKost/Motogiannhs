@@ -1,3 +1,6 @@
+import fblogo from "../assets/fb.png"
+import insta from "../assets/ig.png"
+
 const Footer = () => {
   return (
     <footer>
@@ -10,7 +13,7 @@ const Footer = () => {
           aria-label="Instagram MotoJohn"
         >
           <img
-            src="images/Screenshot_2025-07-05_101226-removebg-preview.png"
+            src={insta}
             className="insta_icon"
             alt="Instagram"
           />
@@ -21,7 +24,7 @@ const Footer = () => {
           rel="noopener noreferrer"
           aria-label="Instagram MotoJohn"
         >
-          <img src="images/fb.png" className="fb_icon" alt="Facebook" />
+          <img src={fblogo} className="fb_icon" alt="Facebook" />
         </a>
       </div>
     </footer>

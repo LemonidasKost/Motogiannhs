@@ -1,6 +1,41 @@
 import React from "react";
+import { useEffect } from "react";
+
+import sprocket from "../assets/sprocket.png";
+import wrench from "../assets/wrench.png";
+import speed from "../assets/speed.png";
+import motot from "../assets/mototimeline.png";
+import ecu from "../assets/ecu.png"
+import ana from "../assets/anakataskevi.png"
+import foto from "../assets/oreaphoto.png"
+
 
 const Home = () => {
+  useEffect(() => {
+    const timeline = document.querySelector(".race-timeline");
+    const moto = document.querySelector(".race-moto");
+
+    if (timeline && moto) {
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              moto.classList.remove("animate");
+              void moto.offsetWidth; // reflow για reset
+              moto.classList.add("animate");
+            } else {
+              moto.classList.remove("animate");
+            }
+          });
+        },
+        { threshold: 0.5 }
+      );
+
+      observer.observe(timeline);
+      return () => observer.disconnect();
+    }
+  }, []);
+  
   return (
     <>
       {/* Hero Section */}
@@ -20,7 +55,7 @@ const Home = () => {
               <div className="race-line-container">
                 <div className="race-line"></div>
                 <div className="race-moto">
-                  <img src="images/motorbike.png" alt="Μηχανάκι" />
+                  <img src={motot} alt="Μηχανάκι" />
                 </div>
               </div>
               <span className="race-today">Σήμερα</span>
@@ -41,7 +76,7 @@ const Home = () => {
           </div>
 
           <div className="about-image">
-            <img src="images/kalografiti.jpg" alt="Moto John Art" />
+            <img src={foto} alt="Moto John Art" />
           </div>
         </div>
       </section>
@@ -69,7 +104,7 @@ const Home = () => {
         <div className="service-grid">
           <div className="service-card">
             <img
-              src="images/sprocket.png"
+              src={sprocket}
               alt="Service Icon"
               className="service-icon"
             />
@@ -79,7 +114,7 @@ const Home = () => {
 
           <div className="service-card">
             <img
-              src="images/speed.png"
+              src={speed}
               alt="Dyno Icon"
               className="service-icon"
             />
@@ -89,7 +124,7 @@ const Home = () => {
 
           <div className="service-card">
             <img
-              src="images/ecu.png"
+              src={ecu}
               alt="ECU Icon"
               className="service-icon"
             />
@@ -99,7 +134,7 @@ const Home = () => {
 
           <div className="service-card">
             <img
-              src="images/wrench.png"
+              src={wrench}
               alt="Repair Icon"
               className="service-icon"
             />
@@ -111,7 +146,7 @@ const Home = () => {
 
           <div className="service-card">
             <img
-              src="images/anakataskevi.png"
+              src={ana}
               className="service-icon moto-icon"
               alt="Μηχανή"
             />
