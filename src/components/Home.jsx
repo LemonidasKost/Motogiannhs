@@ -9,6 +9,27 @@ import ecu from "../assets/ecu.png"
 import ana from "../assets/anakataskevi.png"
 import foto from "../assets/oreaphoto.png"
 
+import img1 from "../assets/carousel/1.jpg";
+import img2 from "../assets/carousel/2.jpg";
+import img3 from "../assets/carousel/3.jpg";
+import img4 from "../assets/carousel/4.jpg";
+import img5 from "../assets/carousel/5.jpg";
+import img6 from "../assets/carousel/6.png";
+import img7 from "../assets/carousel/7.png";
+import img8 from "../assets/carousel/8.png";
+import img9 from "../assets/carousel/9.png";
+import img10 from "../assets/carousel/10.png";
+import img11 from "../assets/carousel/11.jpg";
+import img12 from "../assets/carousel/12.png";
+import img13 from "../assets/carousel/13.png";
+import img14 from "../assets/carousel/14.jpg";
+import img16 from "../assets/carousel/14.png";
+import img15 from "../assets/carousel/15.jpg";
+const carouselImages = [
+  img1, img2, img3, img4, img5,img6, img7, img8, img9, img10,img11, img12, img13, img14, img15, img16,
+  // ξαναπέρνα τα αν θες looping
+];
+
 
 const Home = () => {
   useEffect(() => {
@@ -35,7 +56,7 @@ const Home = () => {
       return () => observer.disconnect();
     }
   }, []);
-  
+
   return (
     <>
       {/* Hero Section */}
@@ -85,15 +106,12 @@ const Home = () => {
       <section className="scroll-gallery">
         <div className="scroll-wrapper">
           <div className="scroll-track">
-            {[
-              "11.jpg", "1.jpg", "15.jpg", "2.jpg", "3.jpg", "4.jpg", "5.jpg",
-              "6.png", "7.png", "8.png", "9.png", "10.png", "12.png", "14.jpg",
-              "11.jpg", "1.jpg", "2.jpg", "3.jpg",
-            ].map((filename, index) => (
+            {carouselImages.map((imageSrc, index) => (
               <div className="img-wrapper" key={index}>
-                <img src={`images/${filename}`} alt={`Εικονίδιο ${index}`} />
+              <img src={imageSrc} alt={`Εικόνα ${index}`} />
               </div>
             ))}
+
           </div>
         </div>
       </section>
